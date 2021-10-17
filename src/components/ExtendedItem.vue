@@ -8,10 +8,8 @@
       data-extends
       :href="extend.url"
       target="_blank"
-    >
-      <span data-button-bg></span>
-      <span data-button-label v-text="extend.label" />
-    </a>
+      v-text="extend.label"
+    />
   </div>
 </template>
 
