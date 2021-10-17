@@ -1,19 +1,21 @@
 <template>
-  <div data-container>
-    <img data-avatar :src="linkdrip.profile.image" />
-    <h1 data-username v-text="linkdrip.profile.name.text"></h1>
-    <p data-description v-text="linkdrip.profile.description.text"></p>
-    <ul data-links>
-      <li
-        data-link-container
-        v-for="(link, index) in linkdrip.links"
-        v-bind:key="index"
-        v-on:click = "handleExtend(index)"
-      >
-        <LinkItem :link="link" />
-        <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
-      </li>
-    </ul>
+  <div container>
+    <div data-container>
+      <img data-avatar :src="linkdrip.profile.image" />
+      <h1 data-username v-text="linkdrip.profile.name.text"></h1>
+      <p data-description v-text="linkdrip.profile.description.text"></p>
+      <ul data-links>
+        <li
+          data-link-container
+          v-for="(link, index) in linkdrip.links"
+          v-bind:key="index"
+          v-on:click = "handleExtend(index)"
+        >
+          <LinkItem :link="link" />
+          <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -137,16 +139,23 @@
 </script>
 
 <style lang="scss">
-  body{
+  body {
     background: #000;
     color: #fff;
     font-family: Helvetica;
     text-align: center;
   }
+  [container] {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
 	[data-container] {
-		margin: 0 auto;
-		max-width: 30rem;
+		margin: 10px;
 		padding: 0 1rem;
+    background-color: #000;
+    border: 1px solid white;
+    border-radius: 20px;
 	}
 	[data-avatar]{
 		position: relative;
@@ -168,7 +177,8 @@
 		font-size: 1rem;
 	}
 	[data-links]{
-		margin: 2rem 0 2rem;
+		margin: 2rem 0;
+    padding: 0;
 		li{
 			margin-top: 1rem;
       border: 1px solid #fff; 
