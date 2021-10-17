@@ -5,19 +5,20 @@
     <p data-description v-text="linkdrip.profile.description.text"></p>
     <ul data-links>
       <li data-link-container v-for="(link, index) in linkdrip.links" v-bind:key="index">
-        <a data-link :href="link.url" target="_blank">
-          <span data-button-bg></span>
-          <span data-button-label v-text="link.label"></span>
-        </a>
+        <LinkItem :link="link" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+  import LinkItem from './components/LinkItem.vue'
 
   export default {
     name: 'App',
+    components: {
+      LinkItem,
+    },
     data: () => ({
       search: new URLSearchParams(window.location.search),
       visible: false,
@@ -81,7 +82,6 @@
 		z-index: 5;
 		font-size: 1.3rem;
 		margin: 0 0 0.25rem;
-		color: red;
 	}
 	[data-description]{
 		position: relative;
@@ -92,20 +92,23 @@
 		margin: 2rem 0 2rem;
 		li{
 			margin: 0 0 1rem 0;
-			a{
+      padding: 1rem 1.25rem;
+      border: 1px solid #fff; 
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+			a {
 				display: block;
-				padding: 1rem 1.25rem;
 				font-size: 1rem;
 				position: relative;
 				color: inherit;
-				border: 1px solid #fff;
 				span{
 					position: relative;
 					z-index: 1;
 				}
 				[data-button-icon]{
 					font-size: 1.3rem;
-					color: #000;
+					color: #fff;
 					position: absolute;
 					top: 50%;
 					left: 1.5rem;
