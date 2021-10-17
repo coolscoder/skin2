@@ -1,8 +1,8 @@
 <template>
   <a
     data-link
+    :href="link.url"
     target="_blank"
-    v-on:click = "handleExtend"
   >
     <span data-button-bg></span>
     <span data-button-label v-text="link.label" />

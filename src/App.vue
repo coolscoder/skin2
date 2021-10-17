@@ -4,8 +4,14 @@
     <h1 data-username v-text="linkdrip.profile.name.text"></h1>
     <p data-description v-text="linkdrip.profile.description.text"></p>
     <ul data-links>
-      <li data-link-container v-for="(link, index) in linkdrip.links" v-bind:key="index">
+      <li
+        data-link-container
+        v-for="(link, index) in linkdrip.links"
+        v-bind:key="index"
+        v-on:click = "handleExtend(index)"
+      >
         <LinkItem :link="link" />
+        <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
       </li>
     </ul>
   </div>
@@ -13,11 +19,13 @@
 
 <script>
   import LinkItem from './components/LinkItem.vue'
+  import ExtendedItem from './components/ExtendedItem.vue'
 
   export default {
     name: 'App',
     components: {
       LinkItem,
+      ExtendedItem,
     },
     data: () => ({
       search: new URLSearchParams(window.location.search),
@@ -34,26 +42,97 @@
             text: "This is my description"
           }
         },
+        extends: [],
         links: [
           {
             url: "http://google.com",
-            label: "This is a link"
+            label: "This is a link",
+            extends: [
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+            ]
           },
           {
             url: "http://google.com",
-            label: "This is a link"
+            label: "This is a link",
+            extends: [
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+            ]
           },
           {
             url: "http://google.com",
-            label: "This is a link"
+            label: "This is a link",
+            extends: [
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+            ]
           },
           {
             url: "http://google.com",
-            label: "This is a link"
+            label: "This is a link",
+            extends: [
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+              {
+                url: "http://google.com",
+                label: "This is another link",
+              },
+            ]
           }
         ]
       }
-    })
+    }),
+    created() {
+      this.$data.linkdrip.links.forEach(() => {
+        this.$data.linkdrip.extends.push(false)
+      });
+    },
+    methods: {
+      handleExtend(index) {
+        if(this.$data.linkdrip.extends[index]) {
+          this.$data.linkdrip.extends[index] = false
+        } else {
+          this.$data.linkdrip.extends[index] = true
+        }
+      }
+    },
   }
 </script>
 
@@ -91,17 +170,19 @@
 	[data-links]{
 		margin: 2rem 0 2rem;
 		li{
-			margin: 0 0 1rem 0;
-      padding: 1rem 1.25rem;
+			margin-top: 1rem;
       border: 1px solid #fff; 
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       cursor: pointer;
+      border-radius: 6px;
 			a {
 				display: block;
 				font-size: 1rem;
 				position: relative;
 				color: inherit;
+        margin: 1rem 0;
 				span{
 					position: relative;
 					z-index: 1;
