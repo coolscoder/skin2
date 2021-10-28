@@ -138,7 +138,7 @@
 
 <style lang="scss">
   body {
-    background: #000;
+    background: #fff;
     color: #fff;
     font-family: Helvetica;
     text-align: center;
