@@ -167,11 +167,14 @@
   }
   legend {
     color: black;
-    animation: marginMove 2s infinite alternate;
+    animation: marginMove 4s infinite alternate;
 
     @keyframes marginMove {
+      0%{
+        margin-left: -100px;
+      }
       100% {
-          margin-left: 100px;
+        margin-left: 100px;
       }
     }
   }
