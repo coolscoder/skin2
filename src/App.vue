@@ -19,8 +19,14 @@
         </ul>
       </div>
     </fieldset>
+    <fieldset left>
+      <legend>This is Left</legend>
+    </fieldset>
     <fieldset bottom>
       <legend>This is Bottom</legend>
+    </fieldset>
+    <fieldset right>
+      <legend>This is Right</legend>
     </fieldset>
   </div>
 </template>
@@ -152,17 +158,34 @@
   }
   fieldset {
     border: 20px solid transparent; 
-    border-top-color: red; 
+    border-top-color: #fff; 
     box-sizing: border-box; 
     grid-area: 1 / 1; 
     width: inherit; 
     padding: 0;
+    margin: 0;
   }
   legend {
-    color: black
+    color: black;
+    animation: marginMove 2s infinite alternate;
+
+    @keyframes marginMove {
+      100% {
+          margin-left: 100px;
+      }
+    }
+  }
+  [left] {
+    transform: rotate(-90deg) translateX(50vh) translateX(20px) translateY(-50vh) translateY(20px);
+    width: 100vh;
   }
   [bottom] {
-    transform: rotate(180deg) translateY(40px);
+    transform: rotate(180deg) translateY(80px);
+  }
+  [right] {
+    // transform: rotate(90deg) translateX(-50vh) translateX(-100px) translateY(-50vw);
+    transform: rotate(90deg) translateX(-50vh) translateX(-100px) translateY(-100vw) translateY(50vh) translateY(20px);
+    width: 100vh;
   }
   [container] {
     background-color: #fff;
@@ -175,7 +198,8 @@
     background-color: #000;
     border-radius: 20px;
     height: calc(100vh - 40px);
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 	}
 	[data-avatar] {
 		position: relative;
