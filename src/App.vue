@@ -33,9 +33,6 @@
     //   ExtendedItem,
     // },
     data: () => ({
-      search: new URLSearchParams(window.location.search),
-      visible: false,
-      linktree: false,
       animate: false,
       linkdrip:{
         skin: 'SKIN_NAME',
