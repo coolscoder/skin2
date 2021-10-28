@@ -1,21 +1,27 @@
 <template>
   <div container>
-    <div data-container>
-      <img data-avatar :src="linkdrip.profile.image" />
-      <h1 data-username v-text="linkdrip.profile.name.text"></h1>
-      <p data-description v-text="linkdrip.profile.description.text"></p>
-      <ul data-links>
-        <li
-          data-link-container
-          v-for="(link, index) in linkdrip.links"
-          v-bind:key="index"
-          v-on:click = "handleExtend(index)"
-        >
-          <LinkItem :link="link" />
-          <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
-        </li>
-      </ul>
-    </div>
+    <fieldset>
+      <legend>This is Top</legend>
+      <div data-container>
+        <img data-avatar :src="linkdrip.profile.image" />
+        <h1 data-username v-text="linkdrip.profile.name.text"></h1>
+        <p data-description v-text="linkdrip.profile.description.text"></p>
+        <ul data-links>
+          <li
+            data-link-container
+            v-for="(link, index) in linkdrip.links"
+            v-bind:key="index"
+            v-on:click = "handleExtend(index)"
+          >
+            <LinkItem :link="link" />
+            <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+    <fieldset bottom>
+      <legend>This is Bottom</legend>
+    </fieldset>
   </div>
 </template>
 
@@ -144,14 +150,27 @@
     text-align: center;
     margin: 0;
   }
+  fieldset {
+    border: 20px solid transparent; 
+    border-top-color: red; 
+    box-sizing: border-box; 
+    grid-area: 1 / 1; 
+    width: inherit; 
+    padding: 0;
+  }
+  legend {
+    color: black
+  }
+  [bottom] {
+    transform: rotate(180deg) translateY(40px);
+  }
   [container] {
-    padding: 10px;
     background-color: #fff;
     border-radius: 20px;
+    height: 100vh;
     overflow: hidden;
   }
 	[data-container] {
-		margin: 10px;
 		padding: 0 1rem;
     background-color: #000;
     border-radius: 20px;
