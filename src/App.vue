@@ -142,6 +142,7 @@
     color: #fff;
     font-family: Helvetica;
     text-align: center;
+    margin: 0;
   }
   [container] {
     padding: 10px;
