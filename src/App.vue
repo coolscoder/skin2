@@ -148,15 +148,17 @@
     padding: 10px;
     background-color: #fff;
     border-radius: 20px;
+    overflow: hidden;
   }
 	[data-container] {
 		margin: 10px;
 		padding: 0 1rem;
     background-color: #000;
-    border: 1px solid white;
     border-radius: 20px;
+    height: calc(100vh - 40px);
+    overflow: scroll;
 	}
-	[data-avatar]{
+	[data-avatar] {
 		position: relative;
 		z-index: 5;
 		width: 100%;
