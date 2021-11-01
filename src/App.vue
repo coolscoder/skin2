@@ -17,9 +17,11 @@
             <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
           </li> -->
           <!-- <div class="cube"> -->
-            <div class="side left"></div>
-            <!-- <div class="side left"></div> -->
-            <div class="side front"></div>
+            <div class="side top"></div>
+            <div class="front-view">
+              <div class="side left"></div>
+              <div class="side front"></div>
+            </div>
           <!-- </div> -->
         </ul>
       </div>
@@ -232,6 +234,7 @@
 		margin: 2rem 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 		li{
@@ -273,24 +276,31 @@
         width: 100%;
         height: 100%;
         border: 2px solid white;
-                background: transparent;
+        background: transparent;
       }
-      .left {
-        transform: rotateX(-45deg) rotateY(-45deg) translateX(12px) translateY(-27px);
-        width: 50px;
-        height: 72px;
-      }
-      .front {
-        transform-origin: bottom;
-        background: greenyellow;
-        width: 200px;
-        height: 50px;
+      .front-view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .left {
+          transform: rotateX(-45deg) rotateY(-45deg) translateX(12px) translateY(-27px);
+          width: 50px;
+          height: 72px;
+          background-color: aqua;
+        }
+        .front {
+          transform-origin: bottom;
+          background: greenyellow;
+          width: 200px;
+          height: 50px;
+        }
       }
       .top {
-        width: 200px;
-        transform: translateZ(-60px) rotateY(90deg);
-        transform-origin: right;
-        background: grey;
+        width: 246px;
+        height: 66px;
+        transform: rotateX(289deg) rotateY(167deg) rotate(33deg) translateX(45px) translateY(86px);
+        transform-origin: center;
+        background: red;
       }
     // }
     
