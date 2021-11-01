@@ -21,7 +21,7 @@
             <div class="front-view">
               <div class="side left"></div>
               <div class="side front">
-                WebBendr
+                DISOCRD
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
             <div class="front-view">
               <div class="side left"></div>
               <div class="side front">
-                WebBendr
+                TIKTOK
               </div>
             </div>
           </div>
