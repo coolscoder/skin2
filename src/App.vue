@@ -16,13 +16,24 @@
             <LinkItem :link="link" />
             <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
           </li> -->
-          <!-- <div class="cube"> -->
+          <div class="cube">
             <div class="side top"></div>
             <div class="front-view">
               <div class="side left"></div>
-              <div class="side front"></div>
+              <div class="side front">
+                WebBendr
+              </div>
             </div>
-          <!-- </div> -->
+          </div>
+          <div class="cube">
+            <div class="side top"></div>
+            <div class="front-view">
+              <div class="side left"></div>
+              <div class="side front">
+                WebBendr
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </fieldset>
@@ -229,9 +240,9 @@
 		position: relative;
 		z-index: 5;
 		font-size: 1rem;
+    margin-bottom: 30px;
 	}
 	[data-links]{
-		margin: 2rem 0;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -240,9 +251,6 @@
 		li{
 			margin-top: 1rem;
       border: 1px solid #fff; 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       cursor: pointer;
       border-radius: 6px;
 			a {
@@ -265,16 +273,19 @@
 				}
 			}
 		}
-    // .cube {
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // transform-style: preserve-3d;
-      // transform: rotateX(180deg);
-      // background-color: red;
+    .cube {
+      margin-top: -60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .side {
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: black;
         border: 2px solid white;
         background: transparent;
       }
@@ -292,17 +303,17 @@
           transform-origin: bottom;
           background: greenyellow;
           width: 200px;
-          height: 50px;
+          min-height: 50px;
         }
       }
       .top {
         width: 246px;
         height: 66px;
-        transform: rotateX(289deg) rotateY(167deg) rotate(33deg) translateX(45px) translateY(86px);
+        transform: rotateX(289deg) rotateY(167deg) rotate(33deg) translateX(46px) translateY(86px);
         transform-origin: center;
         background: red;
       }
-    // }
+    }
     
   }
 </style>
