@@ -7,7 +7,7 @@
         <h1 data-username v-text="linkdrip.profile.name.text"></h1>
         <p data-description v-text="linkdrip.profile.description.text"></p>
         <ul data-links>
-          <li
+          <!-- <li
             data-link-container
             v-for="(link, index) in linkdrip.links"
             v-bind:key="index"
@@ -15,7 +15,12 @@
           >
             <LinkItem :link="link" />
             <ExtendedItem v-if="linkdrip.extends[index]" :extends="link.extends" />
-          </li>
+          </li> -->
+          <!-- <div class="cube"> -->
+            <div class="side left"></div>
+            <!-- <div class="side left"></div> -->
+            <div class="side front"></div>
+          <!-- </div> -->
         </ul>
       </div>
     </fieldset>
@@ -32,14 +37,14 @@
 </template>
 
 <script>
-  import LinkItem from './components/LinkItem.vue'
-  import ExtendedItem from './components/ExtendedItem.vue'
+  // import LinkItem from './components/LinkItem.vue'
+  // import ExtendedItem from './components/ExtendedItem.vue'
 
   export default {
     name: 'App',
     components: {
-      LinkItem,
-      ExtendedItem,
+      // LinkItem,
+      // ExtendedItem,
     },
     data: () => ({
       animate: false,
@@ -226,6 +231,9 @@
 	[data-links]{
 		margin: 2rem 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 		li{
 			margin-top: 1rem;
       border: 1px solid #fff; 
@@ -254,5 +262,37 @@
 				}
 			}
 		}
+    // .cube {
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform-style: preserve-3d;
+      // transform: rotateX(180deg);
+      // background-color: red;
+      .side {
+        width: 100%;
+        height: 100%;
+        border: 2px solid white;
+                background: transparent;
+      }
+      .left {
+        transform: rotateX(-45deg) rotateY(-45deg) translateX(12px) translateY(-27px);
+        width: 50px;
+        height: 72px;
+      }
+      .front {
+        transform-origin: bottom;
+        background: greenyellow;
+        width: 200px;
+        height: 50px;
+      }
+      .top {
+        width: 200px;
+        transform: translateZ(-60px) rotateY(90deg);
+        transform-origin: right;
+        background: grey;
+      }
+    // }
+    
   }
 </style>
